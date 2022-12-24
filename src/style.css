@@ -1,0 +1,10 @@
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+
+  /* later make the header a bit more stylish with
+  dropdown and appName within 1 div and ProjectName 
+  NewTask in 1 (do it in header.js) */
+}
