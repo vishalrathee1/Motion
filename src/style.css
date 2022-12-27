@@ -8,3 +8,39 @@
   dropdown and appName within 1 div and ProjectName 
   NewTask in 1 (do it in header.js) */
 }
+
+.side-nav{
+  display: block;
+}
+
+.new-project-modal {
+  display: block;
+  width: fit-content;
+  border: 2px solid black;
+  height: fit-content;
+  padding: 5px;
+  position: absolute;
+  top: 40%;
+  right: 40%;
+}
+
+#project-modal-close-btn {
+  margin-bottom: 5px;
+  position: relative;
+  right: -86%;
+}
+
+#new-project-form {
+ margin: 10px;
+ padding: 10px;
+}
+
+#new-project-name{
+  display: block;
+}
+
+#new-project-submit-button {
+  margin-top: 10px;
+  margin-left: 22%; /* find a better way to do this?!*/
+
+}

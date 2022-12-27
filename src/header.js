@@ -17,6 +17,14 @@ let header = () => {
   header.appendChild(appName);
   header.appendChild(projectName);
   header.appendChild(newTask);
+  let sideNav = document.querySelector(".side-nav");
+
+  // on clicking dropDown a side nav must open containing all the project names and the content od dropdown button must change to a close sign
+  dropdown.addEventListener("click", () =>{
+    dropdown.innerText = "X"
+    sideNav.style.display = "block";
+    
+  } )
 
   return header;
 }
