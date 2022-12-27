@@ -28,6 +28,7 @@ let sidenav = () =>{
   newProjectName.setAttribute("placeholder", "Project Name")
   newProjectName.setAttribute("required", "");
   newProjectName.id = "new-project-name";
+  newProjectName.setAttribute("maxlength", "18")
 
   //submit button for project
   let submitButton = document.createElement("button");
@@ -61,8 +62,8 @@ let sidenav = () =>{
     event.preventDefault();
     let formValue = event.target.elements
     // console.log(formValue.ProjectName.value)
-    projects.push(formValue);
-    addProjectToNav(formValue);
+    projects.push(formValue.ProjectName.value);
+    addProjectToNav(formValue.ProjectName.value);
     form.reset();
     newProjectModal.style.display = "none";
 
@@ -78,6 +79,16 @@ let sidenav = () =>{
     projectOptions.id = "edit-project";
     projectOptions.innerText = "⋮";
 
+    let projectName = document.createElement("p")
+    projectName.innerText = project
+
+    let subtask = document.createElement("button")
+    subtask.innerText = "↓"
+
+    projectDiv.appendChild(projectOptions);
+    projectDiv.appendChild(projectName);
+    projectDiv.appendChild(subtask);
+    sideNav.appendChild(projectDiv); 
   }
 
 

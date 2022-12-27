@@ -1,4 +1,7 @@
+import sidenav from "./sidenav";
+
 let header = () => {
+  let content = document.querySelector("#content")
   let header = document.createElement("header");
   header.classList.add("header")
   let dropdown = document.createElement("button")
@@ -17,14 +20,24 @@ let header = () => {
   header.appendChild(appName);
   header.appendChild(projectName);
   header.appendChild(newTask);
-  let sideNav = document.querySelector(".side-nav");
 
   // on clicking dropDown a side nav must open containing all the project names and the content od dropdown button must change to a close sign
-  dropdown.addEventListener("click", () =>{
-    dropdown.innerText = "X"
-    sideNav.style.display = "block";
-    
+  // and on clicking again on that close sign, hide the sidenav and if the project modal is open too then close it too
+  dropdown.addEventListener("click", (event) =>{
+    if(event.target.innerText === "DropDown"){
+      dropdown.innerText = "X"
+      content.appendChild(sidenav());
+    } 
+    else{
+      dropdown.innerText = "DropDown"
+      let sideNav = document.querySelector(".side-nav");
+      sideNav.remove()
+      if (document.querySelector(".new-project-modal")){
+        document.querySelector(".new-project-modal").remove()
+      }
+    }
   } )
+
 
   return header;
 }
