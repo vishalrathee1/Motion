@@ -1,4 +1,5 @@
 import sidenav from "./sidenav";
+import newTaskModal from "./newTaskModal";
 
 let header = () => {
   let content = document.querySelector("#content")
@@ -21,6 +22,8 @@ let header = () => {
   header.appendChild(projectName);
   header.appendChild(newTask);
 
+  // content.appendChild(sidenav());
+
   // on clicking dropDown a side nav must open containing all the project names and the content od dropdown button must change to a close sign
   // and on clicking again on that close sign, hide the sidenav and if the project modal is open too then close it too
   dropdown.addEventListener("click", (event) =>{
@@ -37,8 +40,15 @@ let header = () => {
       }
     }
   } )
-
-
+  //on clicking new Task button , new Task modal should be appended
+  newTask.addEventListener("click", (event)=> {
+    if(!document.querySelector(".task-modal-container"))
+    content.appendChild(newTaskModal());
+    else if (event.target!= document.querySelector(".task-modal-container")){
+      document.querySelector(".task-modal-container").remove()
+    }
+  })
+  
   return header;
 }
 

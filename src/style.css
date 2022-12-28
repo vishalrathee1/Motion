@@ -12,14 +12,18 @@
 .side-nav{
   display: flex;
   flex-direction: column;
-  width: max(15%, 200px);
+  width: max(15%, 220px);
+  height: 100vh;
   gap: 3px;
   align-items: center;
+  border: 2px solid black;
+  padding-top: 10px;
+  padding-bottom: 10px;
   /* justify-content: center; */
 }
 
 .new-project-modal {
-  display: block;
+  display: none;
   width: fit-content;
   border: 2px solid black;
   height: fit-content;
@@ -54,12 +58,55 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* flex-wrap: wrap; */
-  width: 100%;
+  width: 90%;
   height: 25px;
   padding: 3px;
   gap: 10px;
   border: 1px solid black;
   border-radius: 4px;
+}
 
+.task-modal-container{
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+
+  width: max(33%, 320px);
+  height: 200px;
+  align-items: center;
+}
+
+.new-task-form{
+  display: flex;
+  width: 100%;
+  flex-grow: 1;
+}
+
+#title-div{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+#due-date-div{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#new-task-description{
+  height: 60%;
+}
+
+#task-due-date{
+  width: 90%;
+}
+
+#task-done-btn{
+  width: 40%;
 }

@@ -1,5 +1,4 @@
 let sidenav = () =>{
-  let body = document.querySelector("body")
   let content = document.querySelector("#content");
   let sideNav = document.createElement("nav");
   sideNav.classList.add("side-nav");
@@ -66,7 +65,8 @@ let sidenav = () =>{
     addProjectToNav(formValue.ProjectName.value);
     form.reset();
     newProjectModal.style.display = "none";
-
+    window.localStorage.clear()
+    window.localStorage.setItem("projects", JSON.stringify(projects))
   })
 
   //rendering projects in nav
@@ -76,7 +76,7 @@ let sidenav = () =>{
 
     // 3 vertical dots button for edit name or delete project
     let projectOptions = document.createElement("button");
-    projectOptions.id = "edit-project";
+    projectOptions.classList.add("edit-project");
     projectOptions.innerText = "⋮";
 
     let projectName = document.createElement("p")
@@ -91,7 +91,34 @@ let sidenav = () =>{
     sideNav.appendChild(projectDiv); 
   }
 
+  //edit and delete add dropdown on projects list
+  // let projectOptions = document.querySelector(".edit-project");
+  // projectOptions.addEventListener("click", ()=>{
+  //   let moreOptionsDiv = document.createElement("div");
+  //   moreOptionsDiv.classList.add("more-options-div");
 
+  //   let editProjectButton = document.createElement("button");
+  //   editProjectButton.classList.add("edit-project-button")
+
+  //   let deleteProjectButton = document.createElement("button")
+  //   deleteProjectButton.classList.add("delete-project-button");
+
+  //   moreOptionsDiv.appendChild(editProjectButton)
+  //   moreOptionsDiv.appendChild(deleteProjectButton);
+
+
+  // })
+
+  function renderProjects() {
+    if(localStorage.projects){
+      let getProjects = JSON.parse(localStorage.getItem("projects"))
+      projects = getProjects
+      projects.map((value)=>{
+        addProjectToNav(value)
+      })
+    }
+  }
+  renderProjects();
   return sideNav;
 }
 
